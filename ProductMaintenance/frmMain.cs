@@ -50,7 +50,7 @@ namespace ProductMaintenance
                     lstProducts.Items.RemoveAt(selectedPosition);
                     
                     products.RemoveAt(selectedPosition);
-                    products.Remove(p);
+                  
                     ProductDB.SaveProducts(products);
 
                 }
