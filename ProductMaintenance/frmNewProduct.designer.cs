@@ -74,6 +74,7 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(100, 22);
             this.txtCode.TabIndex = 3;
+            this.txtCode.Tag = "Code";
             // 
             // txtDescription
             // 
@@ -81,6 +82,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(283, 22);
             this.txtDescription.TabIndex = 4;
+            this.txtDescription.Tag = "Description";
             // 
             // txtPrice
             // 
@@ -88,6 +90,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 22);
             this.txtPrice.TabIndex = 5;
+            this.txtPrice.Tag = "Price";
             // 
             // btnSave
             // 

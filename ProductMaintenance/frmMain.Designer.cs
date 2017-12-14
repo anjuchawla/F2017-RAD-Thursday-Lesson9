@@ -43,6 +43,7 @@
             this.lstProducts.Location = new System.Drawing.Point(23, 84);
             this.lstProducts.Name = "lstProducts";
             this.lstProducts.Size = new System.Drawing.Size(498, 164);
+            this.lstProducts.Sorted = true;
             this.lstProducts.TabIndex = 3;
             // 
             // button1
