@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace ProductMaintenance
 {
-    public class Validator
+    public static class Validator
     {
         private static string title;
 
@@ -26,6 +26,45 @@ namespace ProductMaintenance
                 return false;
             }
             return true;
+
+        }
+
+        //this method checks if the input is a decimal number
+        public static bool isDecimal(TextBox textBox)
+        {
+            decimal number = 0m;
+
+            if (Decimal.TryParse(textBox.Text, out number))
+                return true;
+            else
+            {
+                Title = " Entry Error";
+                Title = textBox.Tag + Title;
+                MessageBox.Show(textBox.Tag + " must be a real number",
+                    Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox.SelectAll();
+                textBox.Focus();
+                return false;
+
+            }
+        }
+
+        //check if price is witin range
+        public static bool IsWithinRange(TextBox textBox, decimal min, decimal max)
+        {
+            decimal number = Convert.ToDecimal(textBox.Text);
+
+            if (number >= min && number <= max)
+                return true;
+
+            Title = " Entry Error";
+            Title = textBox.Tag + Title;
+            MessageBox.Show(textBox.Tag + " must be between "+min +" and " + max,
+                Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            textBox.SelectAll();
+            textBox.Focus();
+            return false;
 
         }
 

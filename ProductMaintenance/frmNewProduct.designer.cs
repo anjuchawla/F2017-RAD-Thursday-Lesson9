@@ -66,7 +66,6 @@
             this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Price:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtCode
             // 
@@ -100,6 +99,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -109,6 +109,7 @@
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label4
             // 

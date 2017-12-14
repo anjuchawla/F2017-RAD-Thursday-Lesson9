@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.lstProducts = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -43,35 +43,37 @@
             this.lstProducts.Location = new System.Drawing.Point(23, 84);
             this.lstProducts.Name = "lstProducts";
             this.lstProducts.Size = new System.Drawing.Size(498, 164);
-            this.lstProducts.Sorted = true;
             this.lstProducts.TabIndex = 3;
             // 
-            // button1
+            // btnAddProduct
             // 
-            this.button1.Location = new System.Drawing.Point(551, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "&Add Product...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Location = new System.Drawing.Point(551, 100);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(129, 32);
+            this.btnAddProduct.TabIndex = 0;
+            this.btnAddProduct.Text = "&Add Product...";
+            this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
-            // button2
+            // btnDeleteProduct
             // 
-            this.button2.Location = new System.Drawing.Point(551, 149);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 32);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "&Delete Product...";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDeleteProduct.Location = new System.Drawing.Point(551, 149);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(129, 32);
+            this.btnDeleteProduct.TabIndex = 1;
+            this.btnDeleteProduct.Text = "&Delete Product...";
+            this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
-            // button3
+            // btnExit
             // 
-            this.button3.Location = new System.Drawing.Point(551, 198);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 32);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "E&xit";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnExit.Location = new System.Drawing.Point(551, 198);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(129, 32);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "E&xit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label1
             // 
@@ -100,15 +102,16 @@
             this.ClientSize = new System.Drawing.Size(704, 301);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnDeleteProduct);
+            this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.lstProducts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product Maintenance";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,9 +120,9 @@
         #endregion
 
         private System.Windows.Forms.ListBox lstProducts;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.Button btnDeleteProduct;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
