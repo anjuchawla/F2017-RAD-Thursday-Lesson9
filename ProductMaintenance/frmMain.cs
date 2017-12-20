@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,11 +47,10 @@ namespace ProductMaintenance
                     MessageBoxDefaultButton.Button1);
                 if (confirm == DialogResult.Yes)
                 {
-                    lstProducts.Items.RemoveAt(selectedPosition);
-                    
+                   // lstProducts.Items.RemoveAt(selectedPosition);
                     products.RemoveAt(selectedPosition);
-                  
                     ProductDB.SaveProducts(products);
+                    FillProductListBox();
 
                 }
             }
