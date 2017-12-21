@@ -12,25 +12,38 @@ namespace ProductMaintenance
 {
     public partial class frmMain : Form
     {
-        private List<Product> products = null;
+        private ProductList products ;
         public frmMain()
         {
+            products = new ProductList();
             InitializeComponent();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            products = ProductDB.GetProducts();
+            products.Changed += new ProductList.ChangeHandler(HandleChange);
+            products.Fill();
             FillProductListBox();
 
+
+        }
+
+        private void HandleChange(ProductList products)
+        {
+            products.Save();
+            FillProductListBox();
+            
         }
 
         private void FillProductListBox()
         {
+            Product p; 
             lstProducts.Items.Clear();
-            foreach (Product product in products)
+
+           for(int i = 0; i < products.Count; i++)
             {
-                lstProducts.Items.Add(product.GetDisplay("\t"));
+                p = products[i]; //use of indexer 
+                lstProducts.Items.Add(p.GetDisplay("\t"));
             }
 
         }
@@ -39,6 +52,7 @@ namespace ProductMaintenance
         {
             int selectedPosition = lstProducts.SelectedIndex;
             Product p;
+            bool flag = false;
 
             if (selectedPosition != -1)
             {
@@ -47,12 +61,21 @@ namespace ProductMaintenance
                     MessageBoxDefaultButton.Button1);
                 if (confirm == DialogResult.Yes)
                 {
-                   // lstProducts.Items.RemoveAt(selectedPosition);
-                    products.RemoveAt(selectedPosition);
-                    ProductDB.SaveProducts(products);
-                    FillProductListBox();
+                    p = products[selectedPosition];
+                    //products.Remove(p);
+                    flag = products - p;  //overloaded operator -
+                    if (flag)
+                        MessageBox.Show("Product Deleted");
+                    else
+                        MessageBox.Show("Product Not Deleted");
 
                 }
+            }
+
+            else
+            {
+                MessageBox.Show("Please select the product to be deleted from the list",
+                    "Delete Product", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -70,9 +93,10 @@ namespace ProductMaintenance
 
             if (p != null)
             {
-                products.Add(p);
-                ProductDB.SaveProducts(products);
-                FillProductListBox();
+                //products.Add(p);
+                products += p;  //products = products + p; 
+                
+                
 
             }
 
